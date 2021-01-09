@@ -32,10 +32,10 @@ public class OptionContractCollector {
                 .ignoreContentType(true).execute();
         SnapshotVo stockOptionSnap = objectMapper.readValue(stockOptionData.body(), SnapshotVo.class);
 
-       if (stockOptionSnap.getMarketStatusVo().getMarketStatusMessage().contains("Closed")) {
+      /* if (stockOptionSnap.getMarketStatusVo().getMarketStatusMessage().contains("Closed")) {
             log.info("Option Market is closed");
             return null;
-        }
+        }*/
         if (lastCollectionTime == null)
             lastCollectionTime = LocalDateTime.parse(stockOptionSnap.getTimestamp(), dateTimeFormatter);
         else {
