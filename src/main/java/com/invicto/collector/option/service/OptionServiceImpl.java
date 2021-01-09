@@ -126,7 +126,15 @@ public class OptionServiceImpl {
                 log.error(ex.getMessage());
             }
         }
-        long count = optionRepository.deleteByRunNumberLessThan(snapshotVo.getRunNumber());
-        log.info("Options removed " + count);
+    }
+
+    public boolean deleteSnapShot(long runNumber) {
+        try {
+            long count = optionRepository.deleteByRunNumber(runNumber);
+            log.info("Deleted, No of Contract : " + count);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }

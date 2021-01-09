@@ -50,6 +50,7 @@ public class OptionCollector implements Runnable {
                     optionSnap.setRunNumber(currentOptionRunNumber);
                     optionService.saveSnapshot(optionSnap);
                     RunBook optionRunBook = optionRunBookOptional.get();
+                    optionService.deleteSnapShot(optionRunBook.getRunNumber());
                     optionRunBook.setRunNumber(currentOptionRunNumber);
                     optionRunBook.setRunAt(localDateTimeConverter.convertToDatabaseColumn(LocalDateTime.parse(((SnapshotVo) optionSnap).getTimestamp(), longDateTimeFormatter)));
                     runBookRepository.save(optionRunBook);
