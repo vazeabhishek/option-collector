@@ -1,0 +1,9 @@
+CREATE TABLE option.OPTION_15M_A
+(
+    collection_time timestamp without time zone,
+    ltp double precision,
+    option_option_record_no bigint,
+    trend double precision,
+    strength double precision,
+    sentiment character varying(255)
+)
