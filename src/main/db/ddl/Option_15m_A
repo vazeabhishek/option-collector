@@ -5,5 +5,6 @@ CREATE TABLE option.OPTION_15M_A
     option_option_record_no bigint,
     trend double precision,
     strength double precision,
-    sentiment character varying(255)
+    sentiment character varying(255),
+    signal character varying(255)
 )
