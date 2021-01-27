@@ -55,6 +55,6 @@ public class OptionDetailHistory {
     private double cumulativeForce;
     @Column(name = "COUNTER")
     private int counter;
-    @ManyToOne(targetEntity = Option.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @ManyToOne(targetEntity = Option.class, fetch = FetchType.EAGER)
     private Option option;
 }
