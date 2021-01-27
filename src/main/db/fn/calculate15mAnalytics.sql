@@ -48,8 +48,8 @@ BEGIN
              v_signal := 'SELL';
          END IF;
 
-		 INSERT INTO option.OPTION_15M_A(collection_time,ltp,option_opyion_record_no,trend,strength,sentiment,signal)
-		 VALUES(NEW.collection_time,v_ltp,NEW.equity_equity_record_no,v_trend,v_strength,v_sentiment,v_signal);
+		 INSERT INTO option.OPTION_15M_A(collection_time,ltp,option_option_record_no,trend,strength,sentiment,signal)
+		 VALUES(NEW.collection_time,v_ltp,NEW.option_option_record_no,v_trend,v_strength,v_sentiment,v_signal);
 	END IF;
 	RETURN NEW;
 END;

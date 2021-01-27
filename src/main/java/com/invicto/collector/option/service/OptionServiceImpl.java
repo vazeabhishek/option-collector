@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -127,10 +128,10 @@ public class OptionServiceImpl {
             }
         }
     }
-
+    @Transactional
     public boolean deleteSnapShot(long runNumber) {
         try {
-            long count = optionRepository.deleteByRunNumber(runNumber);
+            long count = optionRepository.deleteByRunNumberLessThan(runNumber);
             log.info("Deleted, No of Contract : " + count);
             return true;
         } catch (Exception ex) {
