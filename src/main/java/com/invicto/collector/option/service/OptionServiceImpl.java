@@ -90,8 +90,7 @@ public class OptionServiceImpl {
                     optionDetailHistory.setTrendStrength(WEAK);
                     optionDetailHistory.setTrendIndicator(BEARISH);
                 }
-                optionDetailHistory.setMarketForce((data.getNoOfTrades() - latest.getNoOfTrades()) * (data.getLastPrice() - latest.getLastprice()));
-                optionDetailHistory.setCumulativeForce(latest.getCumulativeForce() + optionDetailHistory.getMarketForce());
+                optionDetailHistory.setCumulativeTrend(latest.getCumulativeTrend() + optionDetailHistory.getPercentChangeInOiWrtPrev());
                 option.getOptionDetailHistoryList().add(optionDetailHistory);
             } else {
                 option = new Option();
@@ -111,6 +110,7 @@ public class OptionServiceImpl {
                 optionDetailHistory.setNoOfTrades(data.getNoOfTrades());
                 optionDetailHistory.setOpenInterest(data.getOpenInterest());
                 optionDetailHistory.setUnderlyingValue(data.getUnderlyingValue());
+                optionDetailHistory.setCumulativeTrend(0.0);
                 optionDetailHistory.setTrendStrength(NEUTRAL);
                 optionDetailHistory.setTrendIndicator(NEUTRAL);
                 List<OptionDetailHistory> optionDetailHistoryList = new LinkedList<>();

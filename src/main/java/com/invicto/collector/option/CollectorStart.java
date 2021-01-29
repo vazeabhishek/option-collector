@@ -14,7 +14,7 @@ public class CollectorStart {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/spring.xml");
         OptionCollector collector = ctx.getBean(OptionCollector.class);
         ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1);
-        executorService.scheduleAtFixedRate(collector, 0L, 3L, TimeUnit.MINUTES);
+        executorService.scheduleAtFixedRate(collector, 0L, 2L, TimeUnit.MINUTES);
         Long end = System.currentTimeMillis();
         log.info("Application started in "+((end - start)/1000)+" Seconds");
 

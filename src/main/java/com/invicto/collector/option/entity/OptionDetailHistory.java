@@ -49,10 +49,8 @@ public class OptionDetailHistory {
     private long trendIndicator;
     @Column(name = "TREND_STRENGTH")
     private long trendStrength;
-    @Column(name = "MARKET_FORCE")
-    private double marketForce;
-    @Column(name = "CUMULATIVE_MARKET_FORCE")
-    private double cumulativeForce;
+    @Column(name = "CUMULATIVE_MARKET_TREND")
+    private double cumulativeTrend;
     @Column(name = "COUNTER")
     private int counter;
     @ManyToOne(targetEntity = Option.class, fetch = FetchType.EAGER)

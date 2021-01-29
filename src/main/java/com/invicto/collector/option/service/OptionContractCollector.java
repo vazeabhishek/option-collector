@@ -34,7 +34,7 @@ public class OptionContractCollector {
 
       if (stockOptionSnap.getMarketStatusVo().getMarketStatusMessage().contains("Closed")) {
             log.info("Option Market is closed");
-            //return null;
+            return null;
         }
         if (lastCollectionTime == null)
             lastCollectionTime = LocalDateTime.parse(stockOptionSnap.getTimestamp(), dateTimeFormatter);

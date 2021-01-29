@@ -38,18 +38,18 @@ BEGIN
          INTO latest;
 
          v_signal := 'WAIT';
-         IF latest.sentiment = v_sentiment AND v_sentiment = 'STRONG BULLISH'
+         IF (latest.sentiment = 'WEAK BULLISH' OR latest.sentiment = v_sentiment) AND v_sentiment = 'STRONG BULLISH'
             THEN
              v_signal := 'BUY';
          END IF;
 
-         IF latest.sentiment = v_sentiment AND v_sentiment = 'STRONG BEARISH'
+         IF (latest.sentiment = 'WEAK BEARISH' OR latest.sentiment = v_sentiment) AND v_sentiment = 'STRONG BEARISH'
             THEN
              v_signal := 'SELL';
          END IF;
 
-		 INSERT INTO option.OPTION_15M_A(collection_time,ltp,option_option_record_no,trend,strength,sentiment,signal)
-		 VALUES(NEW.collection_time,v_ltp,NEW.option_option_record_no,v_trend,v_strength,v_sentiment,v_signal);
+		 INSERT INTO option.OPTION_15M_A(collection_time,ltp,option_option_record_no,trend,strength,sentiment,signal,cumulative_trend)
+		 VALUES(NEW.collection_time,v_ltp,NEW.option_option_record_no,v_trend,v_strength,v_sentiment,v_signal,NEW.cumulative_market_trend);
 	END IF;
 	RETURN NEW;
 END;
